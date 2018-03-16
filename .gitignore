@@ -2,4 +2,5 @@ auto-save-list
 elpa
 *~
 .DS_Store
+.python-environments
 /ido.last
