@@ -38,6 +38,26 @@
 (setq is-mac (equal system-type 'darwin))
 (setq is-linux (equal system-type 'gnu/linux))
 
+;; https://emacs.stackexchange.com/a/28933
+(dolist (package
+         '(base16-theme
+           company
+           company-jedi
+           company-lua
+           dictionary
+           exec-path-from-shell
+           fill-column-indicator
+           flycheck
+           html-check-frag
+           js2-mode
+           lua-mode
+           magit
+           markdown-mode
+           pyvenv))
+  (unless (package-installed-p package)
+    (package-install package))
+  (require package))
+
 (when is-mac
   (require 'exec-path-from-shell)
   (exec-path-from-shell-initialize))
@@ -75,23 +95,3 @@
 
 ;; Packages
 (setq load-prefer-newer t)
-
-;; https://emacs.stackexchange.com/a/28933
-(dolist (package
-         '(base16-theme
-           company
-           company-jedi
-           company-lua
-           dictionary
-           exec-path-from-shell
-           fill-column-indicator
-           flycheck
-           html-check-frag
-           js2-mode
-           lua-mode
-           magit
-           markdown-mode
-           pyvenv))
-  (unless (package-installed-p package)
-    (package-install package))
-  (require package))
