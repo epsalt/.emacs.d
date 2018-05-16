@@ -38,6 +38,12 @@
 (setq is-mac (equal system-type 'darwin))
 (setq is-linux (equal system-type 'gnu/linux))
 
+;; Functions (load all files in defuns-dir)
+(setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
+(dolist (file (directory-files defuns-dir t "\\w+"))
+  (when (file-regular-p file)
+    (load file)))
+
 ;; https://emacs.stackexchange.com/a/28933
 (dolist (package
          '(base16-theme
