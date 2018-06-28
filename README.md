@@ -1,7 +1,7 @@
 # An Emacs config
 
-This repo contains my Emacs configuration files. It is structured, and
-borrows some lines from [cjohansen/.emacs.d][cjohansen].
+This repo contains my Emacs configuration files. The structure and
+some lines are borrowed from [cjohansen/.emacs.d][cjohansen].
 
 ## Installation
 
