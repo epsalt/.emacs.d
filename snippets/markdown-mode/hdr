@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: Journal Header Template
+# key: hdr
+# --
+
+# `(insert (format-time-string "%A %B %d %Y %H:%M"))`
+## Summary
+
+Location - ${1:Calgary}
+
+Activities - $2
+
+Company - $3
+
+Weather - $4
+
+Feeling - $5
+
+Reading - $6
+
+## Comments
+
+$0
