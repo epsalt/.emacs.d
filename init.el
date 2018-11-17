@@ -30,9 +30,9 @@
 (setq settings-dir (expand-file-name "settings" user-emacs-directory))
 (add-to-list 'load-path settings-dir)
 
-;; No backups
-(setq auto-save-default nil)
-(setq make-backup-files nil)
+;; Backups
+(setq backup-directory-alist '(("." . "~/.emacs-backups")))
+(setq auto-save-file-name-transforms `((".*" "~/.emacs-autosaves/" t)))
 
 ;; Platform specific settings
 (setq is-mac (equal system-type 'darwin))
