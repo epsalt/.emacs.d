@@ -13,11 +13,6 @@
 
 (setq python-shell-interpreter "python3")
 
-;; Lua
-(defun my/lua-mode-hook ()
-  (add-to-list 'company-backends 'company-lua))
-(add-hook 'lua-mode-hook 'my/lua-mode-hook)
-
 ;; Javascript
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))

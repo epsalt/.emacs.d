@@ -49,14 +49,12 @@
          '(base16-theme
            company
            company-jedi
-           company-lua
            dictionary
            exec-path-from-shell
            fill-column-indicator
            flycheck
            html-check-frag
            js2-mode
-           lua-mode
            magit
            markdown-mode
            pyvenv))
