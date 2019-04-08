@@ -1,7 +1,11 @@
-custom.el
-auto-save-list
-elpa
 *~
 .DS_Store
+.lsp-session*
 .python-environments
-/ido.last
+auto-save-list
+custom.el
+elpa
+ido.last
+request
+smex-items
+transient
