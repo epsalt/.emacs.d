@@ -1,6 +1,7 @@
 (use-package lsp-mode
   :ensure t
   :commands lsp
+  :bind ("C-?" . lsp-describe-thing-at-point)
   :custom
   (lsp-eldoc-enable-hover t)
   (lsp-eldoc-enable-signature-help t)
@@ -11,7 +12,7 @@
 (use-package company-lsp
   :ensure t
   :commands company-lsp
-  :after company
+  :after (lsp-mode company)
   :custom
   (company-lsp-async t)
   (company-lsp-cache-candidates 'auto)

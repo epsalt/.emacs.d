@@ -14,6 +14,7 @@
       indent-tabs-mode nil
       inhibit-startup-message t
       initial-scratch-message nil
+      nobreak-char-display nil
       ring-bell-function 'ignore
       visible-bell nil)
 
