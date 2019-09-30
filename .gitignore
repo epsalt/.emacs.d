@@ -9,3 +9,7 @@ ido.last
 request
 smex-items
 transient
+bin
+bookmarks
+eshell
+irony
