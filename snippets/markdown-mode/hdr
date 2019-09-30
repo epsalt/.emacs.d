@@ -3,10 +3,10 @@
 # key: hdr
 # --
 
-# `(insert (format-time-string "%A %B %d %Y %H:%M"))`
+# `(format-time-string "%A %B %d %Y %H:%M")`
 ## Summary
 
-Location - ${1:Calgary}
+Location - ${1:`(progn (search-backward-regexp "Location - \\(.*\\)" nil 'noerror 2) (match-string 1))`}
 
 Activities - $2
 
@@ -16,7 +16,7 @@ Weather - $4
 
 Feeling - $5
 
-Reading - $6
+Reading - ${6:`(progn (search-backward-regexp "Reading - \\(.*\\)" nil 'noerror 2) (match-string 1))`}
 
 ## Comments
 
