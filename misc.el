@@ -1,13 +1,20 @@
+;; Start in home directory
+(setq default-directory "~")
+
 ;; Fix Emacs defaults
 (menu-bar-mode 0)
 (tool-bar-mode 0)
-(scroll-bar-mode 0)
 (blink-cursor-mode 0)
 (column-number-mode 0)
 (show-paren-mode t)
-(mouse-wheel-mode t)
+
+(if (display-graphic-p)
+    (progn
+      (scroll-bar-mode 0)
+      (mouse-wheel-mode t)))
 
 (set-default 'truncate-lines t)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 (setq case-fold-search t
       disabled-command-function nil

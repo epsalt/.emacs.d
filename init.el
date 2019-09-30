@@ -2,7 +2,6 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
-(setq load-prefer-newer t)
 
 (eval-when-compile
   (require 'use-package))

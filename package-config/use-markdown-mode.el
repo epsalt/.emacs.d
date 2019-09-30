@@ -3,5 +3,4 @@
   :commands (markdown-mode)
   :mode
   ("\\.md\\'" . markdown-mode)
-  ("\\.markdown\\'" . markdown-mode)
-  :hook (markdown-mode-hook . turn-on-auto-fill))
+  ("\\.markdown\\'" . markdown-mode))
