@@ -1,8 +1,12 @@
 (use-package lsp-mode
   :ensure t
+  :hook (js-mode . lsp)
   :commands lsp
-  :bind ("C-?" . lsp-describe-thing-at-point)
+  :bind (("C-c ?" . lsp-describe-thing-at-point)
+	 ("C-c ." . lsp-find-implementation)
+	 ("C-c r" . lsp-find-references))
   :custom
+  (lsp-auto-guess-root t)
   (lsp-eldoc-enable-hover t)
   (lsp-eldoc-enable-signature-help t)
   (lsp-eldoc-prefer-signature-help t)
