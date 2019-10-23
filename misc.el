@@ -8,10 +8,13 @@
 (column-number-mode 0)
 (show-paren-mode t)
 
-(if (display-graphic-p)
-    (progn
-      (scroll-bar-mode 0)
-      (mouse-wheel-mode t)))
+(defun my/frame (frame)
+  (with-selected-frame frame
+      (when (display-graphic-p)
+	(scroll-bar-mode 0)
+	(mouse-wheel-mode t))))
+
+(add-hook 'after-make-frame-functions 'my/frame)
 
 (set-default 'truncate-lines t)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
