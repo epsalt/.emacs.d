@@ -3,7 +3,7 @@
   :hook (js-mode . lsp)
   :commands lsp
   :bind (("C-c ?" . lsp-describe-thing-at-point)
-	 ("C-c ." . lsp-find-implementation)
+	 ("C-c ." . lsp-find-definition)
 	 ("C-c r" . lsp-find-references))
   :custom
   (lsp-auto-guess-root t)
