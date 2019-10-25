@@ -14,6 +14,7 @@
 	(scroll-bar-mode 0)
 	(mouse-wheel-mode t))))
 
+(my/frame (selected-frame))
 (add-hook 'after-make-frame-functions 'my/frame)
 
 (set-default 'truncate-lines t)
