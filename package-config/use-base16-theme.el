@@ -6,5 +6,5 @@
   (if (not (display-graphic-p))
       (setq base16-theme-256-color-source "base16-shell"))
 
-  (load-theme 'base16-tomorrow-night t)
+  (load-theme 'base16-nord t)
   )
