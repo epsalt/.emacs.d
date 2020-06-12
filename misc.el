@@ -1,11 +1,14 @@
 ;; Start in home directory
 (setq default-directory "~")
 
+(setq initial-scratch-message
+  ";; Postpone today.\n;; Conquer tomorrow.\n\n")
+
 ;; Fix Emacs defaults
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (blink-cursor-mode 0)
-(column-number-mode 0)
+(column-number-mode 1)
 (show-paren-mode t)
 
 (defun my/frame (frame)
@@ -24,7 +27,6 @@
       disabled-command-function nil
       indent-tabs-mode nil
       inhibit-startup-message t
-      initial-scratch-message nil
       nobreak-char-display nil
       ring-bell-function 'ignore
       visible-bell nil)
