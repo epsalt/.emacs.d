@@ -1,5 +1,6 @@
 (use-package company
   :ensure t
+  :diminish
   :custom
   (company-idle-delay 0)
   (company-minimum-prefix-length 1)
