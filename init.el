@@ -1,3 +1,5 @@
+(server-start)
+
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
