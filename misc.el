@@ -45,5 +45,12 @@
           x-super-keysym 'super)))
 
 ;; Backups
-(setq backup-directory-alist '(("." . "~/.emacs-backups")))
-(setq auto-save-file-name-transforms `((".*" "~/.emacs-autosaves/" t)))
+(setq backup-directory-alist
+      `(("." . ,(concat user-emacs-directory "backups"))))
+
+(let ((autosave-dir (concat user-emacs-directory "autosaves/")))
+  (if (not (file-exists-p autosave-dir))
+      (make-directory autosave-dir t))
+  (setq auto-save-file-name-transforms
+        (append auto-save-file-name-transforms
+                `((".*" ,autosave-dir t)))))
