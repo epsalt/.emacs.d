@@ -3,8 +3,6 @@
   :init
   (setq-default base16-distinct-fringe-background nil)
   :config
-  (if (not (display-graphic-p))
-      (setq base16-theme-256-color-source "base16-shell"))
-
+  (setq base16-theme-256-color-source "terminal")
   (load-theme 'base16-materia t)
   )
