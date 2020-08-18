@@ -1,9 +1,14 @@
+(use-package flx
+  :ensure t)
+
 (use-package ivy
   :ensure t
+  :after flx
   :diminish
   :custom
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
+  (ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
   :config (ivy-mode))
 
 (use-package counsel
