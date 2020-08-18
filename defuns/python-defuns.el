@@ -8,4 +8,4 @@
   (interactive)
   (let ((venv-path (concat (projectile-project-root) ".venv")))
     (if (file-exists-p venv-path)
-      (pyvenv-workon venv-path))))
+      (pyvenv-activate venv-path))))
