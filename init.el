@@ -15,7 +15,8 @@
 
 ;; Keep custom settings in separate file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;; Load misc configuration
 (load-file (expand-file-name "misc.el" user-emacs-directory))
