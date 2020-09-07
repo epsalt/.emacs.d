@@ -33,17 +33,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; System specific binds
-(when (equal system-type 'darwin)
-  (progn
-    (setq mac-option-modifier 'super
-          mac-command-modifier 'meta)))
-
-(when (equal system-type 'gnu/linux)
-  (progn
-    (setq x-meta-keysym 'meta
-          x-super-keysym 'super)))
-
 ;; Backups
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
