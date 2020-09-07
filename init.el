@@ -31,5 +31,6 @@
   :ensure t
   :custom (load-dir-recursive t))
 
-(load-dir-one (expand-file-name "package-config" user-emacs-directory))
 (load-dir-one (expand-file-name "defuns" user-emacs-directory))
+(load-dir-one (expand-file-name "package-config" user-emacs-directory))
+
