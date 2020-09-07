@@ -4,6 +4,8 @@
   (projectile-completion-system 'ivy)
   (projectile-project-search-path '("~/code"))
   (projectile-auto-discover t)
+  (projectile-dynamic-mode-line nil)
+  (projectile-mode-line-prefix " P")
   :config
   (projectile-mode 1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
