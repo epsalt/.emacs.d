@@ -8,17 +8,28 @@
   :custom
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
-  (ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  (ivy-re-builders-alist '((swiper . ivy--regex-plus)
+			   (t . ivy--regex-fuzzy)))
   :config (ivy-mode))
 
 (use-package counsel
   :ensure t
   :diminish
   :after ivy
-  :config (counsel-mode))
+  :config (counsel-mode)
+  (ivy-configure 'counsel-imenu
+    :update-fn 'auto))
 
 (use-package swiper
   :ensure t
   :after ivy
   :bind (("C-s" . swiper)
          ("C-r" . swiper)))
+
+(defun imenu--cleanup ()
+  "Clean up the overlays."
+  (while swiper--overlays
+    (delete-overlay (pop swiper--overlays)))
+  (save-excursion
+    (goto-char (point-min))
+    (isearch-clean-overlays)))

@@ -1,6 +1,8 @@
 (use-package magit
   :commands (magit-status magit-init)
-  :bind
-  ("C-x M-g" . magit-dispatch)
-  ("C-c g" . magit-file-dispatch)
-  :ensure t)
+  :ensure t
+  :demand t
+  :config
+  (define-key magit-file-mode-map
+    (kbd "C-c g") 'magit-file-dispatch)
+  )
