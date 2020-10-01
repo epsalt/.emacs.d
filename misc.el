@@ -33,6 +33,10 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Unbind suspend-frame
+(global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-x C-z"))
+
 ;; Backups
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
