@@ -1,6 +1,5 @@
 (use-package lsp-mode
   :ensure t
-  :hook (js-mode . lsp)
   :commands lsp
   :bind (("C-c ?" . lsp-describe-thing-at-point)
 	 ("C-c ." . lsp-find-definition)

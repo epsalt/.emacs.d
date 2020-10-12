@@ -32,7 +32,9 @@
     (jedi:setup-keys t)
     :config
     (add-hook 'python-mode-hook 'jedi:setup)
-    (add-to-list 'company-backends 'company-jedi)
+    (defun my/python-mode-hook ()
+      (add-to-list 'company-backends 'company-jedi))
+    (add-hook 'python-mode-hook 'my/python-mode-hook)
 
     (setq jedi:environment-virtualenv
 	  (append python-environment-virtualenv '("--python" "python3"))))
