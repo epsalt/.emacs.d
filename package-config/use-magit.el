@@ -3,6 +3,6 @@
   :ensure t
   :demand t
   :config
-  (define-key magit-file-mode-map
-    (kbd "C-c g") 'magit-file-dispatch)
+  (global-set-key (kbd "C-x g") 'magit-status)
+  (global-set-key (kbd "C-c g") 'magit-file-dispatch)
   )
