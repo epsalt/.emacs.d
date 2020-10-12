@@ -43,7 +43,17 @@
   (progn
     (setq x-meta-keysym 'meta
           x-super-keysym 'super)))
+;; Unbind suspend-frame
+(global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-x C-z"))
 
 ;; Backups
-(setq backup-directory-alist '(("." . "~/.emacs-backups")))
-(setq auto-save-file-name-transforms `((".*" "~/.emacs-autosaves/" t)))
+(setq backup-directory-alist
+      `(("." . ,(concat user-emacs-directory "backups"))))
+
+(let ((autosave-dir (concat user-emacs-directory "autosaves/")))
+  (if (not (file-exists-p autosave-dir))
+      (make-directory autosave-dir t))
+  (setq auto-save-file-name-transforms
+        (append auto-save-file-name-transforms
+                `((".*" ,autosave-dir t)))))

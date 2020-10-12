@@ -1,4 +1,5 @@
 (use-package irony
+  :disabled t
   :ensure t
   :custom
   (irony-cmake-executable "/usr/local/opt/cmake/bin/cmake")

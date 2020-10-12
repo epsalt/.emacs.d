@@ -1,0 +1,11 @@
+(defun my/pyvenv-workon-projectile-name()
+  (interactive)
+  (when (projectile-project-name)
+    (when (member (projectile-project-name) (pyvenv-virtualenv-list))
+      (pyvenv-workon (projectile-project-name)))))
+
+(defun my/pyvenv-workon-projectile-venv()
+  (interactive)
+  (let ((venv-path (concat (projectile-project-root) ".venv")))
+    (if (file-exists-p venv-path)
+      (pyvenv-activate venv-path))))

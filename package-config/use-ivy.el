@@ -1,10 +1,6 @@
-(use-package counsel
-  :diminish
-  :ensure t
-  :after ivy
-  :config (counsel-mode))
-
 (use-package ivy
+  :ensure t
+  :after flx
   :diminish
   :ensure t
   :custom
@@ -12,7 +8,19 @@
   (ivy-use-virtual-buffers t)
   :config
   (ivy-mode)
-  (set-face-attribute 'ivy-virtual nil :foreground "yellow"))
+  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
+				(t . ivy--regex-fuzzy))))
+
+(use-package counsel
+  :ensure t
+  :diminish
+  :after ivy
+  :config (counsel-mode)
+  (ivy-configure 'counsel-imenu
+		 :update-fn 'auto))
+
+(use-package flx
+  :ensure t)
 
 (use-package swiper
   :ensure t
