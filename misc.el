@@ -43,13 +43,21 @@
   (progn
     (setq x-meta-keysym 'meta
           x-super-keysym 'super)))
+
 ;; Unbind suspend-frame
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
 
+(bind-key "C-M-<backspace>" #'delete-indentation)
+(bind-key "C-o" #'open-line)
+
 ;; Backups
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
+
+;; LSP defaults
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024))
 
 (let ((autosave-dir (concat user-emacs-directory "autosaves/")))
   (if (not (file-exists-p autosave-dir))
