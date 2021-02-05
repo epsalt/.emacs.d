@@ -3,6 +3,8 @@
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
   :hook (inferior-python-mode . my-python-enable-eldoc-inferior-python)
+  :bind (("M-n" . python-nav-forward-block)
+         ("M-p" . python-nav-backward-block))
   :config
   (setq python-environment-directory (expand-file-name "~/.virtualenvs"))
   (setq python-shell-interpreter "python3")

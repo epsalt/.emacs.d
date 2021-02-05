@@ -1,15 +1,16 @@
+(use-package flx
+  :ensure t)
+
 (use-package ivy
   :ensure t
   :after flx
   :diminish
-  :ensure t
   :custom
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
-  :config
-  (ivy-mode)
-  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
-				(t . ivy--regex-fuzzy))))
+  (ivy-re-builders-alist '((swiper . ivy--regex-plus)
+        		   (t . ivy--regex-fuzzy)))
+  :config (ivy-mode))
 
 (use-package counsel
   :ensure t
@@ -17,10 +18,7 @@
   :after ivy
   :config (counsel-mode)
   (ivy-configure 'counsel-imenu
-		 :update-fn 'auto))
-
-(use-package flx
-  :ensure t)
+    :update-fn 'auto))
 
 (use-package swiper
   :ensure t
