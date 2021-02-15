@@ -14,19 +14,21 @@
 (use-package nodejs-repl
   :ensure t
   :commands nodejs-repl
-  :bind (("C-c C-r" . nodejs-repl-send-region)
+  :bind (:map js-mode-map
+	 ("C-c C-r" . nodejs-repl-send-region)
 	 ("C-c C-c" . nodejs-repl-send-buffer)
-	 ("C-c C-z" . nodejs-repl-switch-to-repl)))
+	 ("C-c C-z" . nodejs-repl-switch-to-repl))
+  )
 
 (use-package tide
   :ensure t
   :hook ((js-mode . tide-setup)
          (js-mode . tide-hl-identifier-mode))
-  :bind (("C-c ." . tide-jump-to-definition)
+  :bind (:map js-mode-map
+	 ("C-c ." . tide-jump-to-definition)
 	 ("C-c ," . tide-jump-back)
 	 ("C-c ?" . tide-documentation-at-point))
   :config
-
   (defun my/use-eslint-from-node-modules ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)

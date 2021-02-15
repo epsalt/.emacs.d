@@ -1,7 +1,8 @@
 (use-package lsp-mode
   :ensure t
   :commands lsp
-  :bind (("C-c ?" . lsp-describe-thing-at-point)
+  :bind (:map lsp-mode-map
+	 ("C-c ?" . lsp-describe-thing-at-point)
 	 ("C-c ." . lsp-find-definition)
 	 ("C-c r" . lsp-find-references))
   :custom
