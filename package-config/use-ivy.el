@@ -8,8 +8,10 @@
   :custom
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
+  (ivy-extra-directories ())
   (ivy-re-builders-alist '((swiper . ivy--regex-plus)
         		   (t . ivy--regex-fuzzy)))
+  (ivy-use-selectable-prompt t)
   :config (ivy-mode))
 
 (use-package counsel
