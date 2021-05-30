@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Timestamp
+# key: time
+# --
+
+`(current-time-string)`
