@@ -11,24 +11,24 @@
   (setq prettier-js-command "~/.npm-global/bin/prettier")
   )
 
-(use-package nodejs-repl
-  :ensure t
-  :commands nodejs-repl
-  :bind (:map js-mode-map
-	 ("C-c C-r" . nodejs-repl-send-region)
-	 ("C-c C-c" . nodejs-repl-send-buffer)
-	 ("C-c C-z" . nodejs-repl-switch-to-repl))
-  )
-
 (use-package tide
   :ensure t
-  :hook ((js-mode . tide-setup)
-         (js-mode . tide-hl-identifier-mode))
+  :hook (js-mode . my/tide-setup)
   :bind (:map js-mode-map
 	 ("C-c ." . tide-jump-to-definition)
 	 ("C-c ," . tide-jump-back)
 	 ("C-c ?" . tide-documentation-at-point))
+  :custom
+  (tide-always-show-documentation t)
+  (tide-server-max-response-length (* 1024 1024))
   :config
+
+  (defun my/tide-setup ()
+    (when (or (locate-dominating-file default-directory "tsconfig.json")
+              (locate-dominating-file default-directory "jsconfig.json"))
+      (tide-setup)
+      (tide-hl-identifier-mode +1)))
+
   (defun my/use-eslint-from-node-modules ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
@@ -39,9 +39,6 @@
                                  root))))
     (when (and eslint (file-executable-p eslint))
       (setq-local flycheck-javascript-eslint-executable eslint))))
-
-  (setq tide-always-show-documentation t)
-  (setq tide-server-max-response-length (* 1024 1024))
 
   (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
   (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
