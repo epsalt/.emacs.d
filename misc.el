@@ -2,7 +2,10 @@
 (setq default-directory "~")
 
 (setq initial-scratch-message
-  ";; Postpone today.\n;; Conquer tomorrow.\n\n")
+      ";; Postpone today.\n;; Conquer tomorrow.\n\n")
+
+(with-current-buffer (generate-new-buffer "*text*")
+  (markdown-mode))
 
 ;; Fix Emacs defaults
 (menu-bar-mode 0)
@@ -13,9 +16,9 @@
 
 (defun my/frame (frame)
   (with-selected-frame frame
-      (when (display-graphic-p)
-	(scroll-bar-mode 0)
-	(mouse-wheel-mode t))))
+    (when (display-graphic-p)
+      (scroll-bar-mode 0)
+      (mouse-wheel-mode t))))
 
 (my/frame (selected-frame))
 (add-hook 'after-make-frame-functions 'my/frame)
@@ -25,12 +28,11 @@
 
 (setq case-fold-search t
       disabled-command-function nil
-      indent-tabs-mode nil
       inhibit-startup-message t
-      nobreak-char-display nil
       ring-bell-function 'ignore
       visible-bell nil)
 
+(setq-default indent-tabs-mode nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; System specific binds

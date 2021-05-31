@@ -2,9 +2,9 @@
   :ensure t
   :commands lsp
   :bind (:map lsp-mode-map
-	 ("C-c ?" . lsp-describe-thing-at-point)
-	 ("C-c ." . lsp-find-definition)
-	 ("C-c r" . lsp-find-references))
+         ("C-c ?" . lsp-describe-thing-at-point)
+         ("C-c ." . lsp-find-definition)
+         ("C-c r" . lsp-find-references))
   :custom
   (lsp-auto-guess-root t)
   (lsp-eldoc-enable-hover t)

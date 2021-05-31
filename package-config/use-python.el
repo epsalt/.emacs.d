@@ -4,8 +4,7 @@
   :interpreter ("python" . python-mode)
   :hook (inferior-python-mode . my-python-enable-eldoc-inferior-python)
   :bind (:map python-mode-map
-	 ("M-n" . python-nav-forward-block)
-         ("M-p" . python-nav-backward-block))
+              ("C-c C-j" . consult-imenu))
   :config
   (setq python-environment-directory (expand-file-name "~/.virtualenvs"))
   (setq python-shell-interpreter "python3")
@@ -40,6 +39,6 @@
     (add-hook 'python-mode-hook 'my/python-mode-hook)
 
     (setq jedi:environment-virtualenv
-	  (append python-environment-virtualenv '("--python" "python3"))))
+          (append python-environment-virtualenv '("--python" "python3"))))
 
   )
