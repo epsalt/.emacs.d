@@ -34,15 +34,9 @@
   (setq org-agenda-files '("~/org/todo.org"))
   (setq org-directory '("~/org/")))
 
-;; Projectile
-(add-hook 'projectile-mode-hook 'my/projectile-path-hook)
-
-(defun my/projectile-path-hook ()
-  (setq projectile-project-search-path '("~/code")))
-
 ;; Web mode
 (add-hook 'web-mode-hook 'my/web-mode-indentation-hook)
-(add-hook 'editorconfig-custom-hooks my/editorconfig-script-padding-hook)
+(add-hook 'editorconfig-custom-hooks 'my/editorconfig-script-padding-hook)
 
 (defun my/web-mode-indentation-hook ()
   (setq web-mode-enable-control-block-indentation nil)
