@@ -1,5 +1,5 @@
 ;; Start in home directory
-(setq default-directory "~")
+(setq default-directory "~/")
 
 (setq initial-scratch-message
       ";; Postpone today.\n;; Conquer tomorrow.\n\n")

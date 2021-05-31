@@ -21,12 +21,11 @@
   :bind (("C-x b" . consult-buffer)
          ("M-y" . consult-yank-pop)
          ("<help> a" . consult-apropos)
-         ("C-s" . consult-line)
+         ("M-s l" . consult-line)
          ("C-c C-j" . consult-imenu))
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :config
-  (setq consult-project-root-function #'projectile-project-root)
-  )
+  (setq consult-project-root-function #'projectile-project-root))
 
 (use-package marginalia
   :ensure t
