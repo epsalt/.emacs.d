@@ -1,4 +1,5 @@
 (use-package vterm
+  :disabled t
   :config
   ;; (defun vterm-counsel-yank-pop-action (orig-fun &rest args)
   ;; (if (equal major-mode 'vterm-mode)
