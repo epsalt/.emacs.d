@@ -33,6 +33,7 @@
       visible-bell nil)
 
 (setq-default indent-tabs-mode nil)
+(setq require-final-newline t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; System specific binds
