@@ -1,3 +1,9 @@
+;; Python
+(add-hook 'python-mode-hook 'my/python-config-hook)
+
+(defun my/python-config-hook ()
+  (setq python-fill-docstring-style 'pep-257-nn))
+
 ;; Black
 (remove-hook 'python-mode-hook 'blacken-mode)
 (add-hook 'black-mode-hook 'my/black-config-hook)
