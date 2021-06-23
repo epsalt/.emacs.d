@@ -52,6 +52,9 @@ JUSTIFY should be used (if applicable) as in `fill-paragraph'."
           ;; Add the number of newlines indicated by the selected style
           ;; at the start of the docstring.
           (goto-char (+ str-start-pos num-quotes))
+          (el-patch-add
+            (if (eq python-fill-docstring-style 'pep-257-nn)
+                (insert " ")))
           (delete-region (point) (progn
                                    (skip-syntax-forward "> ")
                                    (point)))
