@@ -14,7 +14,7 @@
 
 ;; Flycheck
 (add-hook 'flycheck-mode-hook 'my/flycheck-config-hook)
-(add-hook 'js-mode-hook 'my/flycheck-js-config-hook)
+;; (add-hook 'js-mode-hook 'my/flycheck-js-config-hook)
 
 (defun my/flycheck-config-hook ()
   (setq flycheck-python-flake8-executable "/home/epsalt/.local/bin/flake8")
@@ -22,8 +22,8 @@
   (setq-default flycheck-disabled-checkers '(python-pylint))
   (setq flycheck-help-echo-function nil))
 
-(defun my/flycheck-js-config-hook ()
-  (flycheck-select-checker 'javascript-tide))
+;; (defun my/flycheck-js-config-hook ()
+;;   (flycheck-select-checker 'javascript-tide))
 
 ;; Javascript
 (remove-hook 'js-mode-hook 'prettier-js-mode)
