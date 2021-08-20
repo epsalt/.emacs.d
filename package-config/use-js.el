@@ -1,20 +1,33 @@
+(define-derived-mode web-tsx-mode web-mode "tsx")
+(define-derived-mode web-jsx-mode web-mode "jsx")
+
 (use-package js
-  :config
-  (setq js-indent-level 2)
+  :custom
+  (js-indent-level 2)
+  )
+
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . subword-mode)
+  :custom
+  (typescript-indent-level 2)
   )
 
 (use-package prettier-js
   :ensure t
-  :hook (js-mode . prettier-js-mode)
-  :config
-  (setq prettier-js-command "prettier")
+  :hook ((js-mode typescript-mode web-tsx-mode web-jsx-mode) . prettier-js-mode)
+  :custom
+  (prettier-js-command "prettier")
   )
 
 (use-package tide
   :ensure t
-  :hook ((js-mode . tide-setup)
-         (js-mode . tide-hl-identifier-mode))
-  :bind (:map js-mode-map
+  :hook (((js-mode typescript-mode web-tsx-mode web-jsx-mode) . tide-setup)
+         ((js-mode typescript-mode web-tsx-mode web-jsx-mode) . tide-hl-identifier-mode)
+         (flycheck-mode . my/use-eslint-from-node-modules))
+
+  :bind (:map tide-mode-map
               ("C-c ." . tide-jump-to-definition)
               ("C-c ," . tide-jump-back)
               ("C-c ?" . tide-documentation-at-point))
@@ -33,7 +46,26 @@
       (when (and eslint (file-executable-p eslint))
         (setq-local flycheck-javascript-eslint-executable eslint))))
 
-  (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
   (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
   (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
+  )
+
+(use-package web-mode
+  :ensure t
+  :mode (("\\.jsx$" . web-jsx-mode)
+         ("components\\/.*\\.js\\'" . web-jsx-mode)
+         ("pages\\/.*\\.js\\'" . web-jsx-mode)
+	 ("\\.tsx$" . web-tsx-mode)
+	 ("\\.html$" . web-mode)
+	 ("\\.json$" . web-mode))
+  :custom
+  (web-mode-engines-alist '(("django" . "\\.html\\'")))
+  (web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+  (web-mode-code-indent-offset 2)
+  (web-mode-markup-indent-offset 2)
+  (web-mode-enable-auto-closing t)
+  (web-mode-enable-auto-opening t)
+  (web-mode-enable-auto-pairing t)
+  (web-mode-enable-auto-indentation t)
+  (web-mode-enable-current-element-highlight t)
   )
