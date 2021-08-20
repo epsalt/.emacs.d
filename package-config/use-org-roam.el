@@ -1,11 +1,13 @@
 (use-package org-roam
   :ensure t
+  :diminish org-roam-mode
   :hook
   (after-init . org-roam-mode)
   (org-mode . company-mode)
   :custom
   (org-roam-directory "~/roam")
   (org-roam-dailies-directory "daily/")
+  (org-adapt-indentation 'nil)
   :bind (:map org-roam-mode-map
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file)

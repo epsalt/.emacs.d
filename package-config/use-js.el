@@ -7,7 +7,7 @@
   :ensure t
   :hook (js-mode . prettier-js-mode)
   :config
-  (setq prettier-js-command "~/.npm-global/bin/prettier")
+  (setq prettier-js-command "prettier")
   )
 
 (use-package tide
