@@ -1,5 +1,6 @@
 (use-package projectile
   :ensure t
+  :diminish projectile-mode
   :custom
   ;; (projectile-completion-system 'ivy)
   (projectile-auto-discover t)
