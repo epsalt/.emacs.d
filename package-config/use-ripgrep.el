@@ -3,5 +3,5 @@
   :bind (:map ripgrep-search-mode-map
               ("C-c C-f" . next-error-follow-minor-mode))
   :config
-  (setq ripgrep-arguments '("--max-columns" "1000" "--hidden"))
+  (setq ripgrep-arguments '("--max-columns" "1000" "--hidden" "--glob" "!vendor/" "--glob" "!.git/" "--glob" "!*.svg" "--smart-case"))
   )
