@@ -9,14 +9,13 @@
 (use-package typescript-mode
   :ensure t
   :mode "\\.ts\\'"
-  :hook (typescript-mode . subword-mode)
   :custom
   (typescript-indent-level 2)
   )
 
 (use-package prettier-js
   :ensure t
-  :hook ((js-mode typescript-mode web-tsx-mode web-jsx-mode) . prettier-js-mode)
+  :hook ((js-mode typescript-mode pweb-tsx-mode web-jsx-mode) . prettier-js-mode)
   :custom
   (prettier-js-command "prettier")
   )
@@ -58,9 +57,10 @@
 	 ("\\.tsx$" . web-tsx-mode)
 	 ("\\.html$" . web-mode)
 	 ("\\.json$" . web-mode))
+  :config
+  (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
   :custom
   (web-mode-engines-alist '(("django" . "\\.html\\'")))
-  (web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
   (web-mode-code-indent-offset 2)
   (web-mode-markup-indent-offset 2)
   (web-mode-enable-auto-closing t)
@@ -68,4 +68,5 @@
   (web-mode-enable-auto-pairing t)
   (web-mode-enable-auto-indentation t)
   (web-mode-enable-current-element-highlight t)
+  (web-mode-enable-auto-quoting nil)
   )
