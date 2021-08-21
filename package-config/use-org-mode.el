@@ -8,6 +8,7 @@
   (org-reverse-note-order t)
   (org-tags-column 70)
   (org-cycle-separator-lines 1)
+  (org-adapt-indentation 'nil)
   (org-agenda-files '("~/Dropbox/ttd.org"))
   :config
   (setq my/colors base16-tomorrow-night-colors)
