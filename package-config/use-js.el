@@ -24,8 +24,7 @@
   :ensure t
   :hook (((js-mode typescript-mode web-tsx-mode web-jsx-mode) . tide-setup)
          ((js-mode typescript-mode web-tsx-mode web-jsx-mode) . tide-hl-identifier-mode)
-         (flycheck-mode . my/use-eslint-from-node-modules))
-
+         ((js-mode typescript-mode web-tsx-mode web-jsx-mode) . my/use-eslint-from-node-modules))
   :bind (:map tide-mode-map
               ("C-c ." . tide-jump-to-definition)
               ("C-c ," . tide-jump-back)
