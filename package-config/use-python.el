@@ -2,7 +2,7 @@
   :demand t
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
-  :hook (inferior-python-mode . my/python-enable-eldoc-inferior-python)
+  :hook (inferior-python-mode . my/inferior-python-hook)
   :bind (:map python-mode-map
               ("C-c C-j" . consult-imenu))
   :custom
@@ -20,8 +20,9 @@
   (defun run-ipython ()
     (interactive)
     (run-python (ipython-shell-calculate-command) nil t))
-  (defun my/python-enable-eldoc-inferior-python ()
-    (setq-local eldoc-documentation-function #'python-eldoc-function))
+  (defun my/inferior-python-hook ()
+    (setq-local eldoc-documentation-function #'python-eldoc-function)
+    (setq-local completion-styles '(basic partial-completion emacs22)))
   )
 
 (use-package company-jedi
