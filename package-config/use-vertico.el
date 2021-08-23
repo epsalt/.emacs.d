@@ -4,17 +4,11 @@
   (vertico-mode)
   )
 
-(use-package orderless
-  :ensure t
-  :init
-  (setq completion-styles '(orderless)
-        completion-category-defaults nil
-        completion-category-overrides '((file (styles . (partial-completion))))))
-
 (use-package savehist
   :ensure t
   :init
-  (savehist-mode))
+  (savehist-mode)
+  )
 
 (use-package consult
   :ensure t
@@ -33,4 +27,5 @@
 (use-package marginalia
   :ensure t
   :config
-  (marginalia-mode))
+  (marginalia-mode)
+  )
