@@ -43,3 +43,4 @@
 (load-file (expand-file-name "misc.el" user-emacs-directory))
 (load-dir-one (expand-file-name "package-config" user-emacs-directory))
 (load-dir-one (expand-file-name "patches" user-emacs-directory))
+(load-file (expand-file-name "work.el" user-emacs-directory))
