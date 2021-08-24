@@ -58,8 +58,8 @@
 	 ("\\.json$" . web-mode))
   :config
   (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
+  (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
   :custom
-  (web-mode-engines-alist '(("django" . "\\.html\\'")))
   (web-mode-code-indent-offset 2)
   (web-mode-markup-indent-offset 2)
   (web-mode-enable-auto-closing t)
