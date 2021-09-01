@@ -6,6 +6,8 @@
   ;; :custom
   ;; (tree-sitter-hl-use-font-lock-keywords nil)
   :config
+  (custom-set-faces
+ '(tree-sitter-hl-face:property ((t (:inherit font-lock-constant-face)))))
   (use-package tree-sitter-langs :ensure t)
   (add-to-list 'tree-sitter-major-mode-language-alist '(python-mode . python))
   (add-to-list 'tree-sitter-major-mode-language-alist '(js-mode . javascript))
