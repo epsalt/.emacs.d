@@ -46,6 +46,29 @@
 
   (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
   (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
+
+  (flycheck-define-generic-checker 'web-tsx-tide
+    "A TSX syntax checker using tsserver."
+    :start #'tide-flycheck-start
+    :verify #'tide-flycheck-verify
+    :modes '(web-tsx-mode)
+    :predicate (lambda ()
+                 (and
+                  (tide-file-extension-p "tsx")
+                  (tide-flycheck-predicate))))
+
+  (flycheck-define-generic-checker 'web-jsx-tide
+    "A JSX syntax checker using tsserver."
+    :start #'tide-flycheck-start
+    :verify #'tide-flycheck-verify
+    :modes '(web-jsx-mode)
+    :predicate (lambda ()
+                 (and
+                  (tide-file-extension-p "jsx")
+                  (tide-flycheck-predicate))))
+
+  (add-to-list 'flycheck-checkers 'web-tsx-tide t)
+  (add-to-list 'flycheck-checkers 'web-jsx-tide t)
   )
 
 (use-package web-mode
@@ -59,6 +82,8 @@
   :config
   (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
   (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
+  ;; (flycheck-add-mode 'tsx-tide 'web-tsx-mode)
+  ;; (flycheck-add-mode 'jsx-tide 'web-jsx-mode)
   :custom
   (web-mode-code-indent-offset 2)
   (web-mode-markup-indent-offset 2)
