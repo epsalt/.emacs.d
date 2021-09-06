@@ -6,10 +6,12 @@
   (projectile-auto-discover t)
   (projectile-dynamic-mode-line nil)
   (projectile-mode-line-prefix " P")
+  :bind (:map projectile-mode-map
+              ("C-c p" . 'projectile-command-map)
+              ("C-c p s" . 'consult-ripgrep)
+              ("C-c p v" . 'projectile-run-vterm))
   :config
   (projectile-mode 1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p s") 'consult-ripgrep)
   (setq projectile-switch-project-action
         '(lambda ()
            (my/pyvenv-workon-projectile-venv)
