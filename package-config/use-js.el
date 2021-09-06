@@ -15,7 +15,7 @@
 
 (use-package prettier-js
   :ensure t
-  :hook ((js-mode typescript-mode pweb-tsx-mode web-jsx-mode) . prettier-js-mode)
+  :hook ((js-mode typescript-mode web-tsx-mode web-jsx-mode) . prettier-js-mode)
   :custom
   (prettier-js-command "prettier")
   )
