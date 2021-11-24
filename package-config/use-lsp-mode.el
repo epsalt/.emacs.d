@@ -10,5 +10,7 @@
   (lsp-eldoc-enable-hover t)
   (lsp-eldoc-enable-signature-help t)
   (lsp-eldoc-prefer-signature-help t)
+  (lsp-headerline-breadcrumb-enable nil)
+  (lsp-modeline-code-actions-enable nil)
   (lsp-response-timeout 5)
   (lsp-prefer-flymake :none))
