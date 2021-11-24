@@ -4,7 +4,10 @@
 (use-package js
   :hook (js-mode . lsp)
   :custom
-  (js-indent-level 2))
+  (js-indent-level 2)
+  (lsp-diagnostics-disabled-modes '(js-mode))
+  (lsp-modeline-diagnostics-enable nil)
+  )
 
 (use-package typescript-mode
   :ensure t
