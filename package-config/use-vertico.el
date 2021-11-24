@@ -25,9 +25,8 @@
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :config
   (setq consult-project-root-function #'projectile-project-root)
-  (setq consult-ripgrep-command "rg --null --line-buffered --color=ansi --max-columns=1000\
-  --hidden --glob=!vendor/ --glob=!.git/ --glob=!*.svg --smart-case --no-heading --line-number . -e ARG OPTS")
-  )
+  (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator /\
+         --smart-case --no-heading --line-number --hidden -g \"!vendor\" -g \"!.git\" -g \"!*.svg\" ."))
 
 (use-package marginalia
   :ensure t
