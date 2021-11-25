@@ -1,19 +1,15 @@
 (use-package org-roam
   :ensure t
-  :hook
-  (after-init . org-roam-setup)
-  (org-mode . company-mode)
+  :hook (org-mode . company-mode)
   :custom
   (org-roam-directory "~/roam")
   (org-roam-dailies-directory "daily/")
-  :bind (("C-c n l" . org-roam)
-         ("C-c n f" . org-roam-find-file)
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
-         ("C-c n c" . org-roam-dailies-capture-today)
-         ("C-c n t" . org-roam-dailies-find-today)
-         :map org-mode-map
-         ("C-c n i" . org-roam-insert)
-         ("C-c n I" . org-roam-insert-immediate))
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ("C-c n j" . org-roam-dailies-capture-today))
   :init
   (setq org-roam-v2-ack t)
   :config
@@ -26,5 +22,4 @@
       '(("d" "default" entry
          "* %?"
          :if-new (file+head "%<%Y-%m-%d>.org"
-                            "#+title: %<%Y-%m-%d>\n"))))
-  )
+                            "#+title: %<%Y-%m-%d>\n")))))
