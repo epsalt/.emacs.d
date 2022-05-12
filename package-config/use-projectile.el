@@ -12,8 +12,4 @@
               ("C-c p v" . 'projectile-run-vterm))
   :config
   (projectile-mode 1)
-  (setq projectile-switch-project-action
-        '(lambda ()
-           (my/pyvenv-workon-projectile-venv)
-           (projectile-dired)))
   )
