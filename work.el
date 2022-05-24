@@ -50,3 +50,5 @@
 
 (defun my/editorconfig-script-padding-hook (hash)
   (setq web-mode-script-padding 0))
+
+(setq browse-url-generic-program "wslview")
