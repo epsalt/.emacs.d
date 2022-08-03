@@ -40,6 +40,6 @@
   :custom (load-dir-recursive t))
 
 (load-dir-one (expand-file-name "defuns" user-emacs-directory))
-(load-file (expand-file-name "misc.el" user-emacs-directory))
 (load-dir-one (expand-file-name "package-config" user-emacs-directory))
+(load-file (expand-file-name "misc.el" user-emacs-directory))
 (load-dir-one (expand-file-name "patches" user-emacs-directory))
