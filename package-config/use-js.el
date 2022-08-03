@@ -31,6 +31,7 @@
 	 ("\\.html$" . web-mode))
   :config
   (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
+  (add-hook 'web-mode-hook (lambda () (setq-local standard-indent 2)))
   (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
   :custom
   (web-mode-code-indent-offset 2)
