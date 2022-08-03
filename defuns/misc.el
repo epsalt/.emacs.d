@@ -34,3 +34,9 @@
  (let ((region (buffer-substring beg end)))
    (delete-region beg end)
    (insert (nreverse region))))
+
+(defun my/open-line ()
+  "Insert a newline after cursor and indent it"
+  (interactive)
+  (save-excursion
+    (newline-and-indent)))

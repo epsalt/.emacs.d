@@ -33,6 +33,7 @@
       visible-bell nil)
 
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 (setq require-final-newline t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -52,7 +53,7 @@
 (global-unset-key (kbd "C-x C-z"))
 
 (bind-key "C-M-<backspace>" #'delete-indentation)
-(bind-key "C-o" #'open-line)
+(bind-key "C-o" #'my/open-line)
 
 ;; Backups
 (setq backup-directory-alist
