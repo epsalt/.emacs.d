@@ -1,5 +1,6 @@
 (define-derived-mode web-tsx-mode web-mode "tsx")
 (define-derived-mode web-jsx-mode web-mode "jsx")
+(define-derived-mode web-vue-mode web-mode "vue")
 
 (use-package js
   :hook (js-mode . lsp)
@@ -27,8 +28,9 @@
   :mode (("\\.jsx$" . web-jsx-mode)
          ("components\\/.*\\.js\\'" . web-jsx-mode)
          ("pages\\/.*\\.js\\'" . web-jsx-mode)
-	 ("\\.tsx$" . web-tsx-mode)
-	 ("\\.html$" . web-mode))
+         ("\\.tsx$" . web-tsx-mode)
+	     ("\\.vue$" . web-vue-mode)
+	     ("\\.html$" . web-mode))
   :config
   (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
   (add-hook 'web-mode-hook (lambda () (setq-local standard-indent 2)))
@@ -48,3 +50,9 @@
 
 (use-package web-jsx-mode
   :hook (web-jsx-mode . lsp))
+
+(use-package web-vue-mode
+  :hook (web-vue-mode . lsp)
+  :custom
+  (web-mode-script-padding 0)
+  (web-mode-style-padding 0))
