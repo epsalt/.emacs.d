@@ -3,12 +3,12 @@
 (define-derived-mode web-vue-mode web-mode "vue")
 
 (use-package js
+  :ensure nil
   :hook (js-mode . lsp)
   :custom
   (js-indent-level 2)
   (lsp-diagnostics-disabled-modes '(js-mode))
-  (lsp-modeline-diagnostics-enable nil)
-  )
+  (lsp-modeline-diagnostics-enable nil))
 
 (use-package typescript-mode
   :ensure t
