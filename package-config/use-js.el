@@ -1,5 +1,6 @@
 (define-derived-mode web-tsx-mode web-mode "tsx")
 (define-derived-mode web-jsx-mode web-mode "jsx")
+(define-derived-mode web-vue-mode web-mode "vue")
 
 (use-package js
   :hook (js-mode . lsp)
@@ -25,13 +26,15 @@
 (use-package web-mode
   :ensure t
   :mode (("\\.jsx$" . web-jsx-mode)
-         ("components\\/.*\\.js\\'" . web-jsx-mode)
-         ("pages\\/.*\\.js\\'" . web-jsx-mode)
+         ;; ("components\\/.*\\.js\\'" . web-jsx-mode)
+         ;; ("pages\\/.*\\.js\\'" . web-jsx-mode)
 	 ("\\.tsx$" . web-tsx-mode)
-	 ("\\.html$" . web-mode))
+	 ("\\.html$" . web-mode)
+         ("\\.vue$" . web-vue-mode)
+         )
   :config
   (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
-  (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
+  (setq web-mode-engines-alist '(("django" . "\\.html\\'") ))
   :custom
   (web-mode-code-indent-offset 2)
   (web-mode-markup-indent-offset 2)
@@ -41,6 +44,9 @@
   (web-mode-enable-auto-indentation t)
   (web-mode-enable-current-element-highlight t)
   (web-mode-enable-auto-quoting nil))
+
+(use-package web-vue-mode
+  :hook (web-vue-mode . lsp))
 
 (use-package web-tsx-mode
   :hook (web-tsx-mode . lsp))

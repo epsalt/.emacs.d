@@ -52,3 +52,15 @@
   (setq web-mode-script-padding 0))
 
 (setq browse-url-generic-program "wslview")
+
+;; https://gist.github.com/cpbotha/fdd2c5ab3d22a33679c546323ea3bc0b
+(when (getenv "WAYLAND_DISPLAY")
+  (setq
+   interprogram-cut-function
+   (lambda (text)
+     ;; strangest thing: gui-select-text leads to gui-set-selection 'CLIPBOARD
+     ;; text -- if I eval that with some string, it mostly lands on the wayland
+     ;; clipboard, but not when it's invoked from this context.
+     ;; (gui-set-selection 'CLIPBOARD text)
+     ;; without the charset=utf-8 in type, emacs / wl-copy will crash when you paste emojis into a windows app
+     (start-process "wl-copy" nil "wl-copy" "--trim-newline" "--type" "text/plain;charset=utf-8"  text))))
