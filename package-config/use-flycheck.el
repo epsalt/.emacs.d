@@ -2,6 +2,7 @@
   :ensure t
   :init (global-flycheck-mode)
   :config
+  (flycheck-add-mode 'javascript-eslint 'web-jsx-mode)
   (setq flycheck-highlighting-mode 'nil)
   (defun my/use-eslint-from-node-modules ()
     (let* ((root (locate-dominating-file

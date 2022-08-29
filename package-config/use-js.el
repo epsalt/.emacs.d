@@ -3,12 +3,12 @@
 (define-derived-mode web-vue-mode web-mode "vue")
 
 (use-package js
+  :ensure nil
   :hook (js-mode . lsp)
   :custom
   (js-indent-level 2)
   (lsp-diagnostics-disabled-modes '(js-mode))
-  (lsp-modeline-diagnostics-enable nil)
-  )
+  (lsp-modeline-diagnostics-enable nil))
 
 (use-package typescript-mode
   :ensure t
@@ -26,15 +26,15 @@
 (use-package web-mode
   :ensure t
   :mode (("\\.jsx$" . web-jsx-mode)
-         ;; ("components\\/.*\\.js\\'" . web-jsx-mode)
-         ;; ("pages\\/.*\\.js\\'" . web-jsx-mode)
-	 ("\\.tsx$" . web-tsx-mode)
-	 ("\\.html$" . web-mode)
-         ("\\.vue$" . web-vue-mode)
-         )
+         ("components\\/.*\\.js\\'" . web-jsx-mode)
+         ("pages\\/.*\\.js\\'" . web-jsx-mode)
+         ("\\.tsx$" . web-tsx-mode)
+	 ("\\.vue$" . web-vue-mode)
+	 ("\\.html$" . web-mode))
   :config
   (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
-  (setq web-mode-engines-alist '(("django" . "\\.html\\'") ))
+  (add-hook 'web-mode-hook (lambda () (setq-local standard-indent 2)))
+  (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
   :custom
   (web-mode-code-indent-offset 2)
   (web-mode-markup-indent-offset 2)
@@ -53,3 +53,9 @@
 
 (use-package web-jsx-mode
   :hook (web-jsx-mode . lsp))
+
+(use-package web-vue-mode
+  :hook (web-vue-mode . lsp)
+  :custom
+  (web-mode-script-padding 0)
+  (web-mode-style-padding 0))

@@ -10,6 +10,7 @@
   (org-cycle-separator-lines 1)
   (org-adapt-indentation 'nil)
   (org-agenda-files '("~/Dropbox/ttd.org"))
+  (org-edit-src-content-indentation 0)
   :config
   (setq my/colors base16-tomorrow-night-colors)
   (set-face-attribute 'org-document-title nil :weight 'normal :height 1.0)

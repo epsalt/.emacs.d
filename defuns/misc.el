@@ -26,3 +26,17 @@
   (interactive)
   (let ((sort-fold-case t))
     (call-interactively 'sort-lines)))
+
+(defun reverse-region-characters (beg end)
+  "Reverse characters between BEG and END.
+   https://emacs.stackexchange.com/a/38159"
+ (interactive "r")
+ (let ((region (buffer-substring beg end)))
+   (delete-region beg end)
+   (insert (nreverse region))))
+
+(defun my/open-line ()
+  "Insert a newline after cursor and indent it"
+  (interactive)
+  (save-excursion
+    (newline-and-indent)))

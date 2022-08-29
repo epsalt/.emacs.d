@@ -1,19 +1,16 @@
 (use-package vertico
   :ensure t
   :init
-  (vertico-mode)
-  )
+  (vertico-mode))
 
 (use-package savehist
   :ensure t
   :init
-  (savehist-mode)
-  )
+  (savehist-mode))
 
 (use-package orderless
   :ensure t
-  :custom (completion-styles '(orderless))
-  )
+  :custom (completion-styles '(orderless)))
 
 (use-package consult
   :ensure t
@@ -31,5 +28,4 @@
 (use-package marginalia
   :ensure t
   :config
-  (marginalia-mode)
-  )
+  (marginalia-mode))
