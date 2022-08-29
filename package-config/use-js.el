@@ -29,8 +29,8 @@
          ("components\\/.*\\.js\\'" . web-jsx-mode)
          ("pages\\/.*\\.js\\'" . web-jsx-mode)
          ("\\.tsx$" . web-tsx-mode)
-	     ("\\.vue$" . web-vue-mode)
-	     ("\\.html$" . web-mode))
+	 ("\\.vue$" . web-vue-mode)
+	 ("\\.html$" . web-mode))
   :config
   (add-to-list 'web-mode-content-types-alist '("jsx" . "\\.js[x]?\\'"))
   (add-hook 'web-mode-hook (lambda () (setq-local standard-indent 2)))
@@ -44,6 +44,9 @@
   (web-mode-enable-auto-indentation t)
   (web-mode-enable-current-element-highlight t)
   (web-mode-enable-auto-quoting nil))
+
+(use-package web-vue-mode
+  :hook (web-vue-mode . lsp))
 
 (use-package web-tsx-mode
   :hook (web-tsx-mode . lsp))
