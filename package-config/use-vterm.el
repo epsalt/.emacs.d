@@ -1,6 +1,8 @@
 (use-package vterm
   :ensure t
   :config
+  (setq vterm-max-scrollback 10000)
+
   (defun vterm-counsel-yank-pop-action (orig-fun &rest args)
   (if (equal major-mode 'vterm-mode)
       (let ((inhibit-read-only t)

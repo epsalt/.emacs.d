@@ -18,4 +18,12 @@
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-modeline-code-actions-enable nil)
   (lsp-response-timeout 5)
-  (lsp-prefer-flymake :none))
+  (lsp-prefer-flymake :none)
+  (lsp-log-io t)
+
+  :config
+  (lsp-register-client
+    (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
+                     :major-modes '(c-mode)
+                     :remote? t
+                     :server-id 'clangd-remote)))
