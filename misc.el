@@ -69,3 +69,8 @@
   (setq auto-save-file-name-transforms
         (append auto-save-file-name-transforms
                 `((".*" ,autosave-dir t)))))
+
+(setq native-comp-async-report-warnings-errors 0)
+
+(setq fast-but-imprecise-scrolling t)
+(setq scroll-conservatively 101)
