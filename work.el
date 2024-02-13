@@ -1,16 +1,8 @@
-;; Python
-(add-hook 'python-mode-hook 'my/python-config-hook)
-
-(defun my/python-config-hook ()
-  (setq python-fill-docstring-style 'pep-257-nn))
-
 ;; Black
-(remove-hook 'python-mode-hook 'blacken-mode)
-(add-hook 'black-mode-hook 'my/black-config-hook)
-
 (defun my/black-config-hook ()
-  (setq blacken-skip-string-normalization t)
   (setq blacken-line-length 99))
+
+(add-hook 'blacken-mode-hook 'my/black-config-hook)
 
 ;; Flycheck
 (add-hook 'flycheck-mode-hook 'my/flycheck-config-hook)
@@ -25,13 +17,18 @@
 ;; (defun my/flycheck-js-config-hook ()
 ;;   (flycheck-select-checker 'javascript-tide))
 
-;; Javascript
-(remove-hook 'js-mode-hook 'prettier-js-mode)
+;;Javascript
 (add-hook 'js-mode-hook 'my/js-indent-hook)
-(add-hook 'json-mode-hook 'my/js-indent-hook)
+;; (add-hook 'json-mode-hook 'my/js-indent-hook)
+(add-hook 'web-jsx-mode-hook 'my/web-indent-hook)
 
 (defun my/js-indent-hook ()
   (setq js-indent-level 4))
+(defun my/web-indent-hook ()
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-markup-indent-offset 4)
+  (setq js-indent-level 4)
+  (setq-local standard-indent 4))
 
 ;; Org
 (add-hook 'org-mode-hook 'my/org-directory-hook)
