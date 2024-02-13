@@ -1,6 +1,11 @@
+(use-package tree-sitter-langs
+  :ensure t
+  :demand t)
+
 (use-package tree-sitter
   :ensure t
   :demand t
+  :after tree-sitter-langs
   :diminish
   :config
   (global-tree-sitter-mode)
