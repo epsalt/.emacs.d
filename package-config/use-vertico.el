@@ -23,7 +23,7 @@
   :config
   (setq consult-project-root-function #'projectile-project-root)
   (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator /\
-         --smart-case --no-heading --line-number --hidden -g \"!vendor\" -g \"!.git\" -g \"!*.svg\" ."))
+         --smart-case --no-heading --line-number --hidden -g \"!vendor\" -g \"!tinymce\" -g \"!LC_MESSAGES\" -g \"!.git\" -g \"!*.svg\" ."))
 
 (use-package marginalia
   :ensure t
