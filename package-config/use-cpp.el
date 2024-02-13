@@ -1,10 +1,9 @@
 (use-package cc-mode
-  :hook ((c++-mode . lsp)
+  :hook ((c++-mode . eglot-ensure)
          (c++-mode . smartparens-mode)))
 
-
 (use-package c-mode
-  :hook ((c-mode . lsp)
+  :hook ((c-mode . eglot-ensure)
          (c-mode . smartparens-mode)))
 
 (use-package clang-format
