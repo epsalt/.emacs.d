@@ -11,8 +11,9 @@
   (org-adapt-indentation 'nil)
   (org-agenda-files '("~/Dropbox/ttd.org"))
   (org-edit-src-content-indentation 0)
+  (org-time-stamp-rounding-minutes '(5 5))
   :config
-  (setq my/colors base16-tomorrow-night-colors)
+  (setq my/colors base16-tomorrow-night-theme-colors)
   (set-face-attribute 'org-document-title nil :weight 'normal :height 1.0)
   (set-face-attribute 'org-level-1 nil :foreground (plist-get my/colors :base0D))
   (set-face-attribute 'org-level-2 nil :foreground (plist-get my/colors :base03))
