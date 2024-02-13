@@ -38,3 +38,8 @@
   (defun my/python-mode-hook ()
       (add-to-list 'company-backends  'company-jedi))
   )
+
+(use-package blacken
+  :ensure t
+  :after python
+  :hook (python-mode . blacken-mode))
