@@ -7,10 +7,7 @@
               ("C-c r" . xref-find-references))
   :config
   (fset #'jsonrpc--log-event #'ignore)
-
   (setq eglot-events-buffer-size 0)
-  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
-
   (setq eglot-sync-connect nil)
 
   (setq eglot-ignored-server-capabilities
@@ -31,4 +28,6 @@
   (add-to-list 'eglot-server-programs
                '(web-tsx-mode . ("typescript-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs
-               '(web-jsx-mode . ("typescript-language-server" "--stdio"))))
+               '(web-jsx-mode . ("typescript-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs
+               '(python-ts-mode . ("pyright-langserver" "--stdio"))))
