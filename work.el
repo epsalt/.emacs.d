@@ -18,7 +18,7 @@
 ;;   (flycheck-select-checker 'javascript-tide))
 
 ;;Javascript
-(add-hook 'js-mode-hook 'my/js-indent-hook)
+(add-hook 'js-ts-mode-hook 'my/js-indent-hook)
 ;; (add-hook 'json-mode-hook 'my/js-indent-hook)
 (add-hook 'web-jsx-mode-hook 'my/web-indent-hook)
 
