@@ -1,14 +1,16 @@
 (use-package js-ts-mode
   :ensure nil
   :mode "\\.jsx?\\'"
-  :hook (js-ts-mode . eglot-ensure)
+  :hook ((js-ts-mode . eglot-ensure)
+  (js-ts-mode . flymake-eslint-enable))
   :custom
   (js-indent-level 2))
 
 (use-package typescript-ts-mode
   :ensure t
   :mode "\\.tsx?\\'"
-  :hook (typescript-ts-mode . eglot-ensure)
+  :hook ((typescript-ts-mode . eglot-ensure)
+  (typescript-ts-mode . flymake-eslint-enable))
   :custom
   (typescript-indent-level 2))
 
@@ -34,3 +36,9 @@
   (web-mode-enable-auto-indentation t)
   (web-mode-enable-current-element-highlight t)
   (web-mode-enable-auto-quoting nil))
+
+(use-package flymake-eslint
+  :ensure t
+  :config
+  (setq flymake-eslint-prefer-json-diagnostics t)
+  (setq flymake-eslint-executable-name "eslint_d"))
