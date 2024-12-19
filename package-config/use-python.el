@@ -26,13 +26,3 @@
   :preface
   (defun my/python-hook ()
     (setq-local python-flymake-command `("ruff" "check" "--output-format" "pylint" "--config" ,(find-ruff-config-files-in-current-project) "--quiet" "--stdin-filename" ,buffer-file-name "-"))))
-
-(use-package apheleia
-  :ensure t
-  :hook (after-init . apheleia-global-mode)
-  :custom
-  (apheleia-mode-lighter nil)
-  :config
-  (setf (alist-get 'python-mode apheleia-mode-alist) '(ruff-isort ruff))
-  (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(ruff-isort ruff))
-  (apheleia-global-mode t))

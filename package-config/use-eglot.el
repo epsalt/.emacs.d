@@ -31,3 +31,9 @@
   (fset #'jsonrpc--log-event #'ignore)
   (add-to-list 'eglot-server-programs '(python-ts-mode . ("jedi-language-server")))
   (add-to-list 'eglot-stay-out-of 'flymake))
+
+(use-package flymake
+  :bind (:map flymake-mode-map
+              ("C-c C-l" . flymake-show-buffer-diagnostics)
+              ("M-n" . flymake-goto-next-error)
+              ("M-p" . flymake-goto-prev-error)))
