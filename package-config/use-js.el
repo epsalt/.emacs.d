@@ -25,11 +25,8 @@
   :ensure t
   :mode (("\\.html$" . web-mode))
   :config
-  (add-hook 'web-mode-hook (lambda () (setq-local standard-indent 2)))
   (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
   :custom
-  (web-mode-code-indent-offset 2)
-  (web-mode-markup-indent-offset 2)
   (web-mode-enable-auto-closing t)
   (web-mode-enable-auto-opening t)
   (web-mode-enable-auto-pairing t)
