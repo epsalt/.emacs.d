@@ -1,7 +1,11 @@
 (use-package vertico
   :ensure t
   :init
-  (vertico-mode))
+  (vertico-mode)
+  :config
+  (setq read-file-name-completion-ignore-case t
+        read-buffer-completion-ignore-case t
+        completion-ignore-case t))
 
 (use-package savehist
   :ensure t
@@ -22,8 +26,20 @@
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :config
   (setq consult-project-root-function #'projectile-project-root)
-  (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator /\
-         --smart-case --no-heading --line-number --hidden -g \"!vendor\" -g \"!tinymce\" -g \"!LC_MESSAGES\" -g \"!.git\" -g \"!*.svg\" ."))
+  (setq consult-ripgrep-args
+        "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / \
+        --smart-case --no-heading --line-number --hidden \
+        -g \"!vendor\" \
+        -g \"!tinymce\" \
+        -g \"!LC_MESSAGES\" \
+        -g \"!.git\" \
+        -g \"!*.svg\" \
+        -g \"!package-lock.json\" \
+        -g \"!yarn.lock\" \
+        -g \"!pnpm-lock.yaml\" \
+        -g \"!*.min.js\" \
+        -g \"!*.map\" \
+        ."))
 
 (use-package marginalia
   :ensure t
