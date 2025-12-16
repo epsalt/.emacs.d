@@ -17,9 +17,7 @@
 (use-package prettier-js
   :ensure t
   :hook ((js-ts-mode typescript-ts-mode) . prettier-js-mode)
-  :custom (prettier-js-command "prettier")
-  :config
-  (add-hook 'json-mode-hook (lambda () (prettier-js-mode -1))))
+  :custom (prettier-js-command "prettier"))
 
 (use-package web-mode
   :ensure t

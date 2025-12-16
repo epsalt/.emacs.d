@@ -19,8 +19,12 @@
 
 ;;Javascript
 (add-hook 'js-ts-mode-hook 'my/js-indent-hook)
-;; (add-hook 'json-mode-hook 'my/js-indent-hook)
 (add-hook 'web-jsx-mode-hook 'my/web-indent-hook)
+(add-hook 'typescript-ts-mode-hook 'my/ts-indent-hook)
+
+(defun my/ts-indent-hook ()
+  (setq typescript-ts-mode-indent-offset 4)
+  (setq typescript-indent-level 4))
 
 (defun my/js-indent-hook ()
   (setq js-indent-level 4))

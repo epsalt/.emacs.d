@@ -1,5 +1,4 @@
-(use-package json-mode
-  :ensure t
-  :mode ("\\.json\\'" . json-mode)
+(use-package json-ts-mode
+  :mode ("\\.json\\'" . json-ts-mode)
   :custom
   (js-indent-level 2))
