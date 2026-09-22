@@ -6,6 +6,10 @@
               ("C-c r" . xref-find-references))
   :hook
   (eglot--managed-mode . manually-activate-flymake)
+  (eglot-managed-mode . (lambda ()
+                          (setq-local company-backends
+                                      '(company-capf
+                                        ))))
   :custom
   (eglot-events-buffer-size 0)
   (eglot-sync-connect nil)
@@ -29,7 +33,7 @@
     (flymake-mode 1))
   :config
   (fset #'jsonrpc--log-event #'ignore)
-  (add-to-list 'eglot-server-programs '(python-ts-mode . ("jedi-language-server")))
+  (add-to-list 'eglot-server-programs '(python-ts-mode . ("ty" "server")))
   (add-to-list 'eglot-stay-out-of 'flymake))
 
 (use-package flymake

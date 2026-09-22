@@ -14,7 +14,9 @@
 
 (use-package orderless
   :ensure t
-  :custom (completion-styles '(orderless)))
+  :custom (completion-styles '(orderless))
+  :config
+  (setq completion-category-overrides '((eglot (styles basic orderless)))))
 
 (use-package consult
   :ensure t
@@ -38,8 +40,8 @@
         -g \"!yarn.lock\" \
         -g \"!pnpm-lock.yaml\" \
         -g \"!*.min.js\" \
-        -g \"!*.map\" \
-        ."))
+        -g \"!*.map\""))
+
 
 (use-package marginalia
   :ensure t
